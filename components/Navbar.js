@@ -92,10 +92,7 @@ function Navbar(props) {
       <div className={styles.toolbar}></div>
       <div className={styles.navContainer}>
         <nav className={styles.navbar}>
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Missing-image-232x150.png"
-            className={styles.navbarLogo}
-          />
+          <img src="/templateImage.png" className={styles.navbarLogo} />
           <div>{!isTablet ? navLinks : navBurgerButton}</div>
         </nav>
       </div>
