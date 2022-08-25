@@ -1,0 +1,29 @@
+@import "./utilities/_font.scss";
+@import "./utilities/_colors.scss";
+@import "./utilities/_typography.scss";
+
+/* ///// DEFAULT STYLING ////////////*/
+/* ///// //////////// ///////////////*/
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: $font;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth !important;
+}
+
+a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
