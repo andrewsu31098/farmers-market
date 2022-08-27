@@ -1,9 +1,11 @@
 @import "../../styles/utilities/_colors.scss";
 
+//Add in toolbar if you need the navbar to displace
 .toolbar {
-  height: 60px;
+  // height: 60px;
 }
 
+//Navbar looks different based on whether scrolling or mobile.
 .navContainer {
   position: fixed;
   width: 100%;
@@ -11,12 +13,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $primary-color;
+  background-color: rgba(0, 0, 0, 0);
   padding-inline: 60px;
+  transition: background-color 0.2s ease-in-out;
   /* Force the navbar to stay fixed to the upper left corner */
   left: 0px;
   top: 0px;
   z-index: 1000;
+}
+.scrollingNav {
+  background-color: $primary-color;
+}
+.mobileNav {
+  background-color: $primary-color;
 }
 
 .navbar {
@@ -142,6 +151,7 @@
   top: 60px;
 }
 
+// Dampen screen when menu drawer slides down.
 .cloak {
   position: fixed;
   z-index: 800;
@@ -149,6 +159,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
 .reactIcon:hover {
   color: $secondary-color !important;
 }

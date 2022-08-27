@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 import { useMediaQuery } from "react-responsive";
 import { tabletQuery } from "../utilities/breakpoints.js";
+import { useScrollPosition } from "../utilities/useScrollPosition.js";
 
 import styles from "../styles/layout/Navbar.module.scss";
 
@@ -39,6 +40,8 @@ function Navbar(props) {
   const [tabIndex, setTabIndex] = useState(0);
   const [drawerState, setDrawer] = useState(false);
   const [barClasses, setBarClasses] = useState("");
+
+  const scrollPosition = useScrollPosition();
 
   // Updating lifecycle behavior
   function listenToPopstate() {
@@ -119,7 +122,8 @@ function Navbar(props) {
   }
   function onPageSelect(pageValue) {
     setTabIndex(pageValue);
-    console.log(pageValue);
+    setBarClasses("");
+    setDrawer(false);
   }
 
   // Hydration Fix
@@ -135,7 +139,13 @@ function Navbar(props) {
   return (
     <div>
       <div className={styles.toolbar}></div>
-      <div className={styles.navContainer}>
+      <div
+        className={
+          `${styles.navContainer} ` +
+          `${scrollPosition > 0 ? styles.scrollingNav : null} ` +
+          `${myTabletCheck ? styles.mobileNav : null} `
+        }
+      >
         <nav className={styles.navbar}>
           <img src="/templateImage.png" className={styles.navbarLogo} />
           <div>
