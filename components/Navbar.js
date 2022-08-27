@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useMediaQuery } from "react-responsive";
 import { tabletQuery } from "../utilities/breakpoints.js";
@@ -7,22 +7,26 @@ import { tabletQuery } from "../utilities/breakpoints.js";
 import styles from "../styles/layout/Navbar.module.scss";
 
 const navPages = [
-  { name: "Home", path: "/" },
+  { name: "Home", path: "/", value: 0 },
   {
     name: "About",
-    path: "/#About",
+    path: "/about",
+    value: 1,
   },
   {
     name: "Menu/Services/Portfolio",
-    path: "/#Services",
+    path: "/services",
+    value: 2,
   },
   {
     name: "Contact",
-    path: "/#Contact",
+    path: "/contact",
+    value: 3,
   },
   {
     name: "Order",
-    path: "/#Call",
+    path: "/order",
+    value: 4,
   },
 ];
 
@@ -31,13 +35,36 @@ function Navbar(props) {
     query: tabletQuery,
   });
 
+  // State variables for Navbar
+  const [tabIndex, setTabIndex] = useState(0);
   const [drawerState, setDrawer] = useState(false);
-  const [barClasses, setBarClasses] = useState(styles.navBurgerBar);
+  const [barClasses, setBarClasses] = useState("");
 
-  const navPageComponents = navPages.map(({ name, path }, index) => (
-    <Link key={path + index} href={path}>
-      <a>{name}</a>
-    </Link>
+  // Updating lifecycle behavior
+  function listenToPopstate() {
+    navPages.forEach(({ path, value }) => {
+      if (window.location.pathname === path) {
+        setTabIndex(value);
+      }
+      console.log("I think this one is the current path");
+      console.log(window.location.pathname);
+    });
+  }
+
+  useEffect(() => {
+    listenToPopstate();
+  }, []);
+
+  // Pieces of the NavBar
+  const navPageComponents = navPages.map(({ name, path, value }) => (
+    <div
+      className={tabIndex === value ? styles.tabSelected : null}
+      key={path + value + "navbar"}
+    >
+      <Link key={path + value} href={path}>
+        <a onClick={(e) => onPageSelect(value)}>{name}</a>
+      </Link>
+    </div>
   ));
 
   const navLinks = (
@@ -60,9 +87,13 @@ function Navbar(props) {
           : styles.dropDownMenu
       }
     >
-      {navPages.map(({ name, path }, index) => (
-        <div>
-          <Link key={path + index + "dropdown"} href={path}>
+      {navPages.map(({ name, path, value }) => (
+        <div
+          className={tabIndex === value ? styles.burgerTabSelected : null}
+          onClick={(e) => onPageSelect(value)}
+          key={path + value + "dropdown"}
+        >
+          <Link href={path}>
             <a>{name}</a>
           </Link>{" "}
         </div>
@@ -72,6 +103,7 @@ function Navbar(props) {
 
   const cloak = <div className={styles.cloak} onClick={onCloakClick}></div>;
 
+  // Functions for buttons
   function onDrawerClick(e) {
     if (barClasses === "") {
       setBarClasses(styles.openButton);
@@ -81,24 +113,40 @@ function Navbar(props) {
       setDrawer(false);
     }
   }
-
   function onCloakClick(e) {
     setBarClasses("");
     setDrawer(false);
   }
+  function onPageSelect(pageValue) {
+    setTabIndex(pageValue);
+    console.log(pageValue);
+  }
+
+  // Hydration Fix
+  // Dynamic content requires itself to be rendered on page load.
+  // useMediaQuery doesn't render on page load.
+  // I have to use "useEffect" to force my content to render
+  // only when the page has loaded once already.
+  const [myTabletCheck, setMyTabletCheck] = useState(false);
+  useEffect(() => {
+    setMyTabletCheck(isTablet);
+  }, [isTablet]);
 
   return (
-    <>
+    <div>
       <div className={styles.toolbar}></div>
       <div className={styles.navContainer}>
         <nav className={styles.navbar}>
           <img src="/templateImage.png" className={styles.navbarLogo} />
-          <div>{!isTablet ? navLinks : navBurgerButton}</div>
+          <div>
+            {!myTabletCheck && navLinks} {myTabletCheck && navBurgerButton}
+          </div>
+          {/* {!isTablet ? navLinks : navBurgerButton} */}
         </nav>
       </div>
       {dropDownMenu}
       {drawerState ? cloak : null}
-    </>
+    </div>
   );
 }
 

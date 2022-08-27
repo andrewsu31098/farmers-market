@@ -42,17 +42,17 @@ function Footer(props) {
           </div>
           <div className={styles.footerTab}>
             <h2>Hours</h2>
-            {weeklyHours.map((day) => (
-              <p>{day}</p>
+            {weeklyHours.map((day, index) => (
+              <p key={`footerday${index}`}>{day}</p>
             ))}
           </div>
           <div className={styles.footerTab}>
             <h2>Connect with us!</h2>
             <div className={styles.footerSocials}>
-              <a>
+              <a href="https://facebook.com" target="_blank">
                 <AiFillFacebook />
               </a>
-              <a>
+              <a href="https://instagram.com" target="_blank">
                 <AiFillInstagram />
               </a>
             </div>

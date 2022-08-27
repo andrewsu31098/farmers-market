@@ -1,0 +1,15 @@
+@import "../utilities/_colors.scss";
+
+.SectionContainer {
+  height: 800px;
+  &:nth-child(odd) {
+    background-color: gray;
+  }
+  &:nth-child(even) {
+    background-color: white;
+  }
+}
+
+.SectionCard {
+  display: flex;
+}
