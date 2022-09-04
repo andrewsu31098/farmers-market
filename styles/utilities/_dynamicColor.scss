@@ -1,0 +1,12 @@
+@function text($bg) {
+  @if (lightness($bg) > 50) {
+    @return #000;
+  } @else {
+    @return #fff;
+  }
+}
+
+@mixin dynamicColor($color) {
+  background: $color;
+  color: text($color);
+}

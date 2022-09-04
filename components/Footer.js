@@ -22,7 +22,7 @@ function Footer(props) {
   return (
     <section className={styles.footerContainer}>
       <div className={styles.footer}>
-        <img className={styles.footerIcon} src="/templateImage.png" />
+        {/* <img className={styles.footerIcon} src="/templateImage.png" /> */}
         <div className={styles.footerLinks}>
           {" "}
           <div className={styles.footerTab}>

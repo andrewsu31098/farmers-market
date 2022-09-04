@@ -1,0 +1,85 @@
+@import "../utilities/_breakpoints.scss";
+@import "../utilities/colors";
+
+.IndexContainer {
+  background-color: rgb(185, 185, 185);
+  padding-inline: 50px;
+  padding-block: 50px;
+}
+
+.IndexCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: black;
+  padding: 20px;
+  p {
+    font-size: 1.5rem;
+    max-width: 800px;
+    text-align: center;
+  }
+  p:first-of-type {
+    margin-bottom: 20px;
+  }
+}
+
+.IndexGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 50px;
+  overflow: hidden;
+
+  padding-block: 20px;
+  margin-top: 50px;
+
+  @include laptop-breakpoint-down {
+    & {
+      grid-template-columns: minmax(auto, 500px);
+      grid-template-rows: 1fr 1fr 1fr;
+    }
+  }
+}
+
+.IndexGridItem {
+  position: relative;
+}
+
+// Image with text over them
+.IndexImageWrapper {
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 0.2s all ease-in-out;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+.IndexOverlayWrapper {
+  // Allow hover effect on underlying elements
+  pointer-events: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    background-color: rgba(0, 0, 0, 0.408);
+    font-family: Old London;
+    font-size: 3em;
+    color: rgb(255, 255, 255);
+    padding-inline: 50px;
+    padding-block: 30px;
+    border: 3px white inset;
+  }
+}

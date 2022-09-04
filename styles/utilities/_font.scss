@@ -1,2 +1,12 @@
-$font: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+$font: Alegreya SC, Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+  Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+@font-face {
+  font-family: "Ringbearer";
+  src: url("/ringbearer/RINGM___.TTF") format("truetype");
+}
+
+@font-face {
+  font-family: "Old London";
+  src: url("/old_london/OldLondon.ttf") format("truetype");
+}

@@ -43,10 +43,10 @@
   @extend %btn-base;
 
   color: white;
-  background-color: #000a12;
+  background-color: #9c3848;
   border: 2px #00000000 solid;
 
   &:hover {
-    box-shadow: 6px 6px 2px 1px rgba(0, 0, 255, 0.2);
+    box-shadow: 6px 6px 2px 1px #9c38495d;
   }
 }

@@ -1,4 +1,5 @@
 @import "../../styles/utilities/_colors.scss";
+@import "../utilities/_breakpoints.scss";
 
 //Add in toolbar if you need the navbar to displace
 .toolbar {
@@ -9,13 +10,13 @@
 .navContainer {
   position: fixed;
   width: 100%;
-  height: 60px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0);
   padding-inline: 60px;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, height 0.2s ease-in-out;
   /* Force the navbar to stay fixed to the upper left corner */
   left: 0px;
   top: 0px;
@@ -23,9 +24,19 @@
 }
 .scrollingNav {
   background-color: $primary-color;
+  height: 60px;
 }
 .mobileNav {
   background-color: $primary-color;
+  height: 60px;
+  // Hotfix to make the img transform normally.
+  img {
+    top: 10px !important;
+    left: -50px !important;
+    height: 40px !important;
+    min-width: 100px !important;
+    width: 100px !important;
+  }
 }
 
 .navbar {
@@ -37,9 +48,45 @@
 }
 
 .navbarLogo {
-  width: 50px;
-  height: 50px;
-  flex: 0 1 50px;
+  display: flex;
+  height: 100px;
+  flex-basis: 300px;
+  font-family: Ringbearer;
+
+  color: #deb841;
+
+  position: relative;
+  img {
+    min-width: 250px;
+    position: absolute;
+    height: 100px;
+    width: 250px;
+    top: 50px;
+    left: 10px;
+    transition: all 0.5s ease-in-out;
+
+    &.scrollingImg {
+      top: 10px;
+      left: -50px;
+      height: 40px;
+      min-width: 100px;
+      width: 100px;
+    }
+  }
+  p {
+    position: absolute;
+    white-space: nowrap;
+    top: 30px;
+    left: 0px;
+    font-size: 1.5rem;
+    @include mobile-breakpoint-down {
+      & {
+        font-size: 1rem;
+        top: 40px;
+        left: -40px;
+      }
+    }
+  }
 }
 
 .navLinks {

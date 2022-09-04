@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 import { useMediaQuery } from "react-responsive";
-import { tabletQuery } from "../utilities/breakpoints.js";
+import { tabletQuery, laptopQuery } from "../utilities/breakpoints.js";
 import { useScrollPosition } from "../utilities/useScrollPosition.js";
 
 import styles from "../styles/layout/Navbar.module.scss";
@@ -10,30 +10,20 @@ import styles from "../styles/layout/Navbar.module.scss";
 const navPages = [
   { name: "Home", path: "/", value: 0 },
   {
-    name: "About",
+    name: "About Us",
     path: "/about",
     value: 1,
   },
   {
-    name: "Menu/Services/Portfolio",
-    path: "/services",
+    name: "Our Booths",
+    path: "/booths",
     value: 2,
-  },
-  {
-    name: "Contact",
-    path: "/contact",
-    value: 3,
-  },
-  {
-    name: "Order",
-    path: "/order",
-    value: 4,
   },
 ];
 
 function Navbar(props) {
   var isTablet = useMediaQuery({
-    query: tabletQuery,
+    query: laptopQuery,
   });
 
   // State variables for Navbar
@@ -147,11 +137,16 @@ function Navbar(props) {
         }
       >
         <nav className={styles.navbar}>
-          <img src="/templateImage.png" className={styles.navbarLogo} />
+          <div className={styles.navbarLogo}>
+            <img
+              src="/olivebranch.png"
+              className={`${scrollPosition > 0 ? styles.scrollingImg : null} `}
+            />
+            <p>Shire Farmer's Market</p>
+          </div>
           <div>
             {!myTabletCheck && navLinks} {myTabletCheck && navBurgerButton}
           </div>
-          {/* {!isTablet ? navLinks : navBurgerButton} */}
         </nav>
       </div>
       {dropDownMenu}

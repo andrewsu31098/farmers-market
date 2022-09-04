@@ -1,0 +1,66 @@
+@import "../utilities/dynamicColor";
+@import "../utilities/cardParent";
+@import "../utilities/colors";
+@import "../utilities/breakpoints";
+
+.FarmerContainer {
+  padding: 20px;
+  img {
+    border-radius: 5px;
+    height: 400px;
+
+    object-fit: scale-down;
+    margin-inline: 50px;
+    margin-bottom: 30px;
+  }
+}
+
+.FarmerCard {
+  & > h2 {
+    text-align: center;
+    font-size: 3rem;
+  }
+}
+
+.FarmerBioWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.FarmerBio,
+.FarmerBio2 {
+  display: flex;
+  max-width: 1000px;
+}
+.FarmerBio {
+  @include laptop-breakpoint-down {
+    flex-direction: column-reverse;
+  }
+}
+.FarmerBio2 {
+  @include laptop-breakpoint-down {
+    flex-direction: column;
+  }
+}
+
+.FCBioTextWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.FCBioText {
+  @extend %CardParent;
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 20px;
+
+  & > h4 {
+    font-size: 1.5rem;
+  }
+  & > h5 {
+    color: $accent-color-2;
+  }
+}
