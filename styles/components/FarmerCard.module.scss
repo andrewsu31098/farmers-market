@@ -13,12 +13,14 @@
     margin-inline: 50px;
     margin-bottom: 30px;
   }
+  border-top: 5px rgb(190, 190, 190) solid;
 }
 
 .FarmerCard {
   & > h2 {
     text-align: center;
     font-size: 3rem;
+    font-family: Old London;
   }
 }
 

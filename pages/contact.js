@@ -1,5 +1,12 @@
+import ContactCard from "../components/ContactCard";
+import ContactLandingCard from "../components/LandingCards/ContactLandingCard";
 function Contact(props) {
-  return <div>Contact.</div>;
+  return (
+    <>
+      <ContactLandingCard />
+      <ContactCard />
+    </>
+  );
 }
 
 export default Contact;

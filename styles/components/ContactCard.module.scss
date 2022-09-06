@@ -1,0 +1,51 @@
+.ContactContainer {
+  background-color: bisque;
+  padding-block: 100px;
+  padding-inline: 50px;
+  border-top: 5px rgb(190, 190, 190) solid;
+  h2 {
+    text-align: center;
+  }
+}
+
+.ContactCard {
+  display: flex;
+  justify-content: center;
+}
+.ContactGrid {
+  flex-basis: 1000px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  max-width: 1000px;
+}
+
+.ContactInfo {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    margin-top: 0px;
+  }
+  .CIField {
+    line-height: 3rem;
+  }
+}
+.ContactForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputField {
+  width: 100%;
+  padding-block: 15px;
+  padding-inline: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.inputSubmit {
+  width: 100px;
+}

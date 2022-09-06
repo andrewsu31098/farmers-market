@@ -2,13 +2,14 @@
 @import "../utilities/cardParent";
 
 .StandContainer {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   justify-content: center;
   margin-bottom: 100px;
 }
 
 .StandCard {
+  padding: 30px;
+  border-top: 2px rgb(99, 99, 99) solid;
 }
 
 .StandGridWrapper {

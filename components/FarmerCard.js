@@ -43,6 +43,25 @@ function FarmerCard(props) {
             </div>
           </article>
         </div>
+
+        <div className={styles.FarmerBioWrapper}>
+          <article className={styles.FarmerBio}>
+            <div className={styles.FCBioTextWrapper}>
+              <div className={styles.FCBioText}>
+                <h5>John Bloggs. Farmland Tycoon.</h5>
+                <h4>
+                  Lorem ipsum is placeholder text commonly used in the graphic
+                </h4>
+                Bacon ipsum dolor amet shoulder frankfurter ball tip meatball
+                picanha sirloin, drumstick cow ham hock. Frankfurter pig bacon
+                tenderloin, t-bone kevin turkey pork burgdoggen chislic chuck
+                flank. Frankfurter pig bacon tenderloin, t-bone kevin turkey
+                pork burgdoggen chislic chuck flank.
+              </div>
+            </div>
+            <img src="/about4-1500.jpg" />
+          </article>
+        </div>
       </div>
     </section>
   );

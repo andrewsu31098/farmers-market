@@ -5,9 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
 import Image from "next/image";
-import farmercar1 from "../../public/farmercar1-1500.jpg";
-import farmercar2 from "../../public/farmercar2-1500.jpg";
-import farmercar3 from "../../public/farmercar3-1500.jpg";
+import farmercar2 from "../../public/farmercar2-2500.jpg";
 
 function LandingCard(props) {
   function alertOnClick(e) {

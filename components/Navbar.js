@@ -19,6 +19,11 @@ const navPages = [
     path: "/booths",
     value: 2,
   },
+  {
+    name: "Contact",
+    path: "/contact",
+    value: 3,
+  },
 ];
 
 function Navbar(props) {
