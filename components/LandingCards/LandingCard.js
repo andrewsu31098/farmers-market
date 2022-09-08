@@ -8,10 +8,6 @@ import Image from "next/image";
 import farmercar2 from "../../public/farmercar2-2500.jpg";
 
 function LandingCard(props) {
-  function alertOnClick(e) {
-    alert("Worked");
-  }
-
   return (
     <section className={landingStyles.LandingCard}>
       <div className={landingStyles.LCImageWrapper}>

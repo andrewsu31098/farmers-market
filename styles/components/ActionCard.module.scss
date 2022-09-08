@@ -14,6 +14,14 @@
   background-attachment: fixed;
   background-size: cover;
 }
+
+.AC-BG-ImageWrapper {
+  height: 400px;
+  background-color: gray;
+  position: relative;
+  overflow: hidden;
+}
+
 .AC-BG-Plain {
   height: 400px;
   background: white;
