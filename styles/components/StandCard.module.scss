@@ -1,6 +1,6 @@
 @import "../utilities/colors";
 @import "../utilities/cardParent";
-
+@import "../utilities/breakpoints";
 .StandContainer {
   display: flex;
   justify-content: center;
@@ -16,23 +16,36 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
-
   max-width: 1000px;
+  max-height: 900px;
+  @include tablet-breakpoint-down {
+    & {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      & h3 {
+        margin-block: 0;
+      }
+    }
+  }
 }
 
 .StandImageWrapper {
-  height: 500px;
-  width: 500px;
+  height: 100%;
+  width: 100%;
   margin-right: 50px;
-  img {
-    height: 500px;
-    width: 500px;
-    // object-fit: cover;
+  @include tablet-breakpoint-down {
+    margin-right: 0px;
   }
 }
 
 .StandPriceColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-left: 50px;
+  @include tablet-breakpoint-down {
+    margin-left: 0px;
+  }
   h3 {
     font-size: 2.5rem;
   }

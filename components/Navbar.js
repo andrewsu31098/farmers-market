@@ -39,6 +39,7 @@ function Navbar(props) {
   const scrollPosition = useScrollPosition();
 
   // Updating lifecycle behavior
+  // Code allows tab to remain after window refresh.
   function listenToPopstate() {
     navPages.forEach(({ path, value }) => {
       if (window.location.pathname === path) {
@@ -102,7 +103,7 @@ function Navbar(props) {
   const cloak = <div className={styles.cloak} onClick={onCloakClick}></div>;
 
   // Functions for buttons
-  function onDrawerClick(e) {
+  function onDrawerClick() {
     if (barClasses === "") {
       setBarClasses(styles.openButton);
       setDrawer(true);
@@ -111,7 +112,7 @@ function Navbar(props) {
       setDrawer(false);
     }
   }
-  function onCloakClick(e) {
+  function onCloakClick() {
     setBarClasses("");
     setDrawer(false);
   }
@@ -129,6 +130,9 @@ function Navbar(props) {
   const [myTabletCheck, setMyTabletCheck] = useState(false);
   useEffect(() => {
     setMyTabletCheck(isTablet);
+    // If the user resizes the page with the menu open, it should close.
+
+    onCloakClick();
   }, [isTablet]);
 
   return (

@@ -13,6 +13,7 @@ function ContactLandingCard(props) {
           layout="fill"
           objectFit="cover"
           objectPosition="50% 50%"
+          priority="true"
         />
       </div>
       <div className={styles.CLImageOverlay}>

@@ -1,10 +1,4 @@
-import {
-  AiFillPhone,
-  AiFillShop,
-  AiFillMail,
-  AiFillFacebook,
-  AiFillInstagram,
-} from "react-icons/ai";
+import { AiFillPhone, AiFillShop, AiFillMail } from "react-icons/ai";
 
 import styles from "../styles/components/ContactCard.module.scss";
 import buttonStyles from "../styles/components/Button.module.scss";

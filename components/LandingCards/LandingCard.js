@@ -15,7 +15,12 @@ function LandingCard(props) {
   return (
     <section className={landingStyles.LandingCard}>
       <div className={landingStyles.LCImageWrapper}>
-        <Image src={farmercar2} alt="Picture of bread." layout="fill" />
+        <Image
+          src={farmercar2}
+          alt="Picture of bread."
+          layout="fill"
+          priority="true"
+        />
       </div>
 
       <div className={landingStyles.LandingInnerBox}>

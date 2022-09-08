@@ -1,8 +1,13 @@
 import { AiOutlineCalendar } from "react-icons/ai";
 import { IoLocationSharp } from "react-icons/io5";
 import Link from "next/link";
+import Image from "next/image";
 
 import styles from "../styles/components/IndexCard.module.scss";
+
+import about1 from "../public/about1-1500.jpg";
+import activites1 from "../public/activities1-2000.jpg";
+import lineup1 from "../public/lineup1-1500.jpg";
 
 function IndexCard(props) {
   return (
@@ -42,7 +47,8 @@ function IndexCard(props) {
           <div className={styles.IndexGridItem}>
             <div className={styles.IndexImageWrapper}>
               <Link href="/booths">
-                <img src="/about1-1500.jpg" />
+                {/* <img src="/about1-1500.jpg" /> */}
+                <Image src="/about1-1500.jpg" layout="fill" />
               </Link>
             </div>
             <div className={styles.IndexOverlayWrapper}>
@@ -52,7 +58,7 @@ function IndexCard(props) {
           <div className={styles.IndexGridItem}>
             <div className={styles.IndexImageWrapper}>
               <Link href="/about">
-                <img src="/lineup1-1500.jpg" />
+                <Image src="/lineup1-1500.jpg" layout="fill" />
               </Link>
             </div>
             <div className={styles.IndexOverlayWrapper}>
@@ -61,7 +67,7 @@ function IndexCard(props) {
           </div>{" "}
           <div className={styles.IndexGridItem}>
             <div className={styles.IndexImageWrapper}>
-              <img src="/activities1-2000.jpg" />
+              <Image src="/activities1-2000.jpg" layout="fill" />
             </div>
             <div className={styles.IndexOverlayWrapper}>
               <p>Activities</p>

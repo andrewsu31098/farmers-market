@@ -13,6 +13,7 @@ function AboutCard(props) {
           layout="fill"
           objectFit="cover"
           objectPosition="top"
+          priority="true"
         />
       </div>
       <div className={styles.ABCImageOverlay}>

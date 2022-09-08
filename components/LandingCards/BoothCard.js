@@ -12,6 +12,7 @@ function BoothCard(props) {
           alt="Picture of pastries."
           layout="fill"
           objectFit="cover"
+          priority="true"
         />
       </div>
       <div className={styles.BoothImageOverlay}>
